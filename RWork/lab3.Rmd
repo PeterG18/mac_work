@@ -1,0 +1,419 @@
+---
+title: "Lab 3"
+author: "Peter Gansallo"
+date: "2024-10-24"
+output:
+  html_document:
+    theme: flatly
+    self_contained: yes
+    mode: self_contained
+  pdf_document:
+editor_options:
+  markdown:
+    wrap: sentence
+---
+
+Install the necessary libraries
+
+```{r, eval=F}
+# Load the necessary tools and setting the work directory
+install.packages("Hmisc", repos = "http://cran.us.r-project.org")
+install.packages("descr", repos = "http://cran.us.r-project.org")
+install.packages("readxl") # to read excel files
+```
+
+Load the necessary libraries and set path
+
+```{r LoadPackages, include = FALSE}    
+library(readxl)
+library(tidyverse) # collection of R packages designed for data science
+```
+
+```{r, eval=F}
+library(readxl)
+library(tidyverse) # collection of R packages designed for data science
+library("Hmisc") 
+library("descr") 
+library(devtools)
+library(here) # helps with filepaths
+library(dplyr)
+setwd("~/Desktop/RWork")
+here::i_am("lab3.Rmd") # this should match the file name
+```
+
+## Report 1.1
+I've decided to use the cpsaat07 dataset from the BLS which shows unemployment rates and education level, and all of this data from BLS can be accessed here https://www.bls.gov/cps/tables.htm
+
+Load BLS cpsaat07 datasets (Unemployment by Education)
+
+```{r}
+edu_2017 <- read_excel("cpsaat07_2017.xlsx")
+edu_2018 <- read_excel("cpsaat07_2018.xlsx")
+edu_2019 <- read_excel("cpsaat07_2019.xlsx")
+edu_2020 <- read_excel("cpsaat07_2020.xlsx")
+edu_2021 <- read_excel("cpsaat07_2021.xlsx")
+edu_2022 <- read_excel("cpsaat07_2022.xlsx")
+edu_2023 <- read_excel("cpsaat07_2023.xlsx")
+```
+
+## Report 1.2
+I'll be analyzing these variables:
+- Education level determining skill category and unemployment rates
+- Unemployment_rate over time
+
+
+### Bivariate Analysis on:
+- Skill Category and Unemployment Rates:
+This analysis will examine how unemployment varies across skill levels, providing insights into which skill categories are most affected.
+-Unemployment Rates over time:
+This will show show how unemployment trends have changed over time
+
+## Report 1.3
+How do unemployment rates vary across skill categories (Low, Medium, High), and are low-skill workers more negatively impacted by economic or technological changes?
+
+## Report 1.4
+After we loading the cpsaat07 datasets from the BLS  we'll begin with cleaning and organizing the data. Empty rows will be removed, column names will be renamed, being "less than high_school", "high school", etc, then those columns will be collapsed into one column called education level column called education. A year column will be added to associate the data with its respective year. Education levels will then be categorized into skill levels. 
+
+Finally we'll perform statistical tests to explore key relationships. An (ANOVA) will be conducted to examine differences in unemployment rate across skill categories. And a Pearson Correlation Test to see if unemployment rates show any trends over time.
+
+## Report 1.5
+I'm only the years of 2017–2023, which is relatively a short time frame that may not capture long-term trends or the gradual impacts of automation and AI adoption. This period also includes the COVID-19 pandemic, a economic disruption that could disproportionately influence results, limiting its generalizability.
+The Pearson correlation test can reveal trends over time, it assumes a linear relationship, which may not accurately reflect unemployment dynamics.
+
+Collapsing education levels into skill categories simplifies the analysis but may mask variations within each category. The absence of direct data on AI adoption or automation trends also limits the ability to link findings to technological changes. Expanding the time frame or incorporating industry-specific data would also provide deeper insights.
+
+# Part 2
+
+## Report 1.6
+There aren't necessarily any missing data, however the way the BLS formatted the data set there are so spaces(empty rows in the data set) so I'll just remove those rows, but every education level has a corresponding unemployment number
+
+## Report 1.7
+
+### Code cleanup
+
+### Clean up CPSAAT07 data
+Inspect the education/unemployment data
+
+```{r}
+#View(edu_2023)
+colnames(edu_2023)
+```
+
+After viewing the data set we in R it's very messy
+
+
+Clean edu 2023
+
+```{r}
+edu_2023 <- edu_2023 %>%
+  rename(unemployed = "HOUSEHOLD DATA\r\nANNUAL AVERAGES\r\n7. Employment status of the civilian noninstitutional population 25 years and over by educational attainment, sex, race, and Hispanic or Latino ethnicity") %>%
+  filter(unemployed == "Unemployment rate") %>%
+  rename(less_highschool = "...2") %>%
+  rename(highschool_no_college = "...3") %>%
+  rename(some_college_no_degree = "...5") %>%
+  rename(associaate_degree = "...6") %>%
+  rename(bachelor_degree = "...8") %>%
+  rename(advanced_degree = "...9")
+```
+
+Inspect updated data
+
+```{r}
+str(edu_2023)
+```
+
+Keep only the columns of interest and collapse columns into one column education 
+https://www.geeksforgeeks.org/extract-first-n-rows-from-dataframe-in-r/
+
+Remember that also the rows are broken down into more categories on ethnicity/race/gender
+The first row of this data are the total numbers which we'll be looking at so we'll filter that
+
+```{r}
+# Remove columns that don't correspond to education levels
+edu_2023 <- edu_2023 %>%
+  select(-unemployed, -`...4`, -`...7`)
+
+# Create a new data frame with education, unemployment_rate, and year
+edu_2023 <- data.frame(
+  education = colnames(edu_2023), 
+  unemployment_rate = as.numeric(edu_2023[1, ]), # Extract the first row
+  year = 2023 
+)
+
+```
+
+Look at updated edu 2023 and make sure it still matches data from BLS
+
+```{r}
+#View(edu_2023)
+str(edu_2023)
+```
+
+#### Do the same for the rest of the CPSAAT07 data
+
+Clean 2022
+
+```{r}
+edu_2022 <- edu_2022 %>%
+  rename(unemployed = "HOUSEHOLD DATA\r\nANNUAL AVERAGES\r\n7. Employment status of the civilian noninstitutional population 25 years and over by educational attainment, sex, race, and Hispanic or Latino ethnicity") %>%
+  filter(unemployed == "Unemployment rate") %>%
+  rename(less_highschool = "...2") %>%
+  rename(highschool_no_college = "...3") %>%
+  rename(some_college_no_degree = "...5") %>%
+  rename(associaate_degree = "...6") %>%
+  rename(bachelor_degree = "...8") %>%
+  rename(advanced_degree = "...9")
+
+# Remove columns that don't correspond to education levels
+edu_2022 <- edu_2022 %>%
+  select(-unemployed, -`...4`, -`...7`)
+
+# Create a new data frame with education, unemployment_rate, and year
+edu_2022 <- data.frame(
+  education = colnames(edu_2022), 
+  unemployment_rate = as.numeric(edu_2022[1, ]), # Extract the first row
+  year = 2022)
+```
+
+Clean 2021
+
+```{r}
+edu_2021 <- edu_2021 %>%
+  rename(unemployed = "HOUSEHOLD DATA\r\nANNUAL AVERAGES\r\n7. Employment status of the civilian noninstitutional population 25 years and over by educational attainment, sex, race, and Hispanic or Latino ethnicity") %>%
+  filter(unemployed == "Unemployment rate") %>%
+  rename(less_highschool = "...2") %>%
+  rename(highschool_no_college = "...3") %>%
+  rename(some_college_no_degree = "...5") %>%
+  rename(associaate_degree = "...6") %>%
+  rename(bachelor_degree = "...8") %>%
+  rename(advanced_degree = "...9")
+
+# Remove columns that don't correspond to education levels
+edu_2021 <- edu_2021 %>%
+  select(-unemployed, -`...4`, -`...7`)
+
+# Create a new data frame with education, unemployment_rate, and year
+edu_2021 <- data.frame(
+  education = colnames(edu_2021), 
+  unemployment_rate = as.numeric(edu_2021[1, ]), # Extract the first row
+  year = 2021)
+```
+
+Clean 2020
+
+```{r}
+edu_2020 <- edu_2020 %>%
+  rename(unemployed = "HOUSEHOLD DATA\r\nANNUAL AVERAGES\r\n7.  Employment status of the civilian noninstitutional population 25 years and over by educational attainment, sex, race, and Hispanic or Latino ethnicity") %>%
+  filter(unemployed == "Unemployment rate") %>%
+  rename(less_highschool = "...2") %>%
+  rename(highschool_no_college = "...3") %>%
+  rename(some_college_no_degree = "...5") %>%
+  rename(associaate_degree = "...6") %>%
+  rename(bachelor_degree = "...8") %>%
+  rename(advanced_degree = "...9") 
+
+# Remove columns that don't correspond to education levels
+edu_2020 <- edu_2020 %>%
+  select(-unemployed, -`...4`, -`...7`)
+
+# Create a new data frame with education, unemployment_rate, and year
+edu_2020 <- data.frame(
+  education = colnames(edu_2020), 
+  unemployment_rate = as.numeric(edu_2020[1, ]), # Extract the first row
+  year = 2020)
+```
+
+Clean 2019
+
+```{r}
+edu_2019 <- edu_2019 %>%
+  rename(unemployed = "HOUSEHOLD DATA\r\nANNUAL AVERAGES\r\n7.  Employment status of the civilian noninstitutional population 25 years and over by educational attainment, sex, race, and Hispanic or Latino ethnicity") %>%
+  filter(unemployed == "Unemployment rate") %>%
+  rename(less_highschool = "...2") %>%
+  rename(highschool_no_college = "...3") %>%
+  rename(some_college_no_degree = "...5") %>%
+  rename(associaate_degree = "...6") %>%
+  rename(bachelor_degree = "...8") %>%
+  rename(advanced_degree = "...9")
+
+# Remove columns that don't correspond to education levels
+edu_2019 <- edu_2019 %>%
+  select(-unemployed, -`...4`, -`...7`)
+
+# Create a new data frame with education, unemployment_rate, and year
+edu_2019 <- data.frame(
+  education = colnames(edu_2019), 
+  unemployment_rate = as.numeric(edu_2019[1, ]), # Extract the first row
+  year = 2019)
+```
+
+
+
+Clean 2018
+
+```{r}
+edu_2018 <- edu_2018 %>%
+  rename(unemployed = "HOUSEHOLD DATA\r\nANNUAL AVERAGES\r\n7. Employment status of the civilian noninstitutional population 25 years and over by educational attainment, sex, race, and Hispanic or Latino ethnicity") %>%
+  filter(unemployed == "Unemployment rate") %>%
+  rename(less_highschool = "...2") %>%
+  rename(highschool_no_college = "...3") %>%
+  rename(some_college_no_degree = "...5") %>%
+  rename(associaate_degree = "...6") %>%
+  rename(bachelor_degree = "...8") %>%
+  rename(advanced_degree = "...9")
+
+# Remove columns that don't correspond to education levels
+edu_2018 <- edu_2018 %>%
+  select(-unemployed, -`...4`, -`...7`)
+
+# Create a new data frame with education, unemployment_rate, and year
+edu_2018 <- data.frame(
+  education = colnames(edu_2018), 
+  unemployment_rate = as.numeric(edu_2018[1, ]), # Extract the first row
+  year = 2018)
+```
+
+Clean 2017
+
+```{r}
+edu_2017 <- edu_2017 %>%
+  rename(unemployed = "HOUSEHOLD DATA\r\nANNUAL AVERAGES\r\n7.  Employment status of the civilian noninstitutional population 25 years and over by educational attainment, sex, race, and Hispanic or Latino ethnicity") %>%
+  filter(unemployed == "Unemployment rate") %>%
+  rename(less_highschool = "...2") %>%
+  rename(highschool_no_college = "...3") %>%
+  rename(some_college_no_degree = "...5") %>%
+  rename(associaate_degree = "...6") %>%
+  rename(bachelor_degree = "...8") %>%
+  rename(advanced_degree = "...9")
+
+# Remove columns that don't correspond to education levels
+edu_2017 <- edu_2017 %>%
+  select(-unemployed, -`...4`, -`...7`)
+
+# Create a new data frame with education, unemployment_rate, and year
+edu_2017 <- data.frame(
+  education = colnames(edu_2017), 
+  unemployment_rate = as.numeric(edu_2017[1, ]), # Extract the first row
+  year = 2017)
+```
+
+Combine the CPSAAT07 datasets, for the time comparison as well
+
+```{r}
+education_unemployment <- bind_rows(edu_2017, 
+                        edu_2018, 
+                        edu_2019, 
+                        edu_2020, 
+                        edu_2021, 
+                        edu_2022, 
+                        edu_2023) %>%
+  na.omit() %>%
+  droplevels()
+```
+
+### Categorize education in skill levels
+
+Low Skill:
+Representing minimal formal education and qualifying for routine or manual labor jobs.
+- Less than High school (No high school diploma)
+- High School (No College)
+
+Medium Skill:
+Reflects intermediate training or post-secondary education suited for administrative or skilled technical roles.
+- Some College (No Degree)
+- Associate's Degree
+
+High Skill:
+Representing higher education levels normally associated with professional or highly technical roles.
+- Bachelor's Degree
+- Advanced Degree (Master's, PHD)
+
+```{r}
+education_unemployment <- education_unemployment %>%
+  mutate(skill_category = fct_recode(education,
+                                     
+                    #Low skill
+    "Low Skill" = "less_highschool",
+    "Low Skill" = "highschool_no_college",
+
+                    #Medium skill
+    "Medium Skill" = "some_college_no_degree",
+    "Medium Skill" = "associaate_degree",
+
+    
+                    #High skill
+    "High Skill" = "bachelor_degree",
+    "High Skill" = "advanced_degree"
+  ))
+```
+
+## Report 1.8
+
+### Analysis
+Four Variables:
+- Skill_Category
+- Year
+- Unemployed
+
+take a look at the data
+
+```{r}
+head(education_unemployment)
+```
+
+
+```{r}
+tail(education_unemployment)
+```
+
+```{r}
+summary(education_unemployment)
+```
+
+
+```{r}
+summary(education_unemployment$unemployment_rate)
+```
+
+#### Compare the relationship between skill category and unemployment 
+
+Unemployment rate and Skill Category by education
+
+```{r}
+# Box plot of unemployment by skill category
+ggplot(education_unemployment, aes(x = skill_category, y = unemployment_rate)) +
+  geom_boxplot(fill = "lightgray", color = "steelblue") +
+  labs(x = "Skill Category", y = "Unemployment Rate") +
+  ggtitle("Skill Category (Education) by Unemployment Rate")
+```
+
+Unemployment by skill category (education)
+(Look at the distribution)
+```{r}
+ggplot(education_unemployment, aes(unemployment_rate, fill = skill_category)) + geom_histogram(binwidth = 1) + facet_grid(skill_category ~ ., margins = TRUE, scales = "free")
+```
+
+```{r}
+# Perform ANOVA
+anova_result <- aov(unemployment_rate ~ skill_category, data = education_unemployment)
+summary(anova_result)
+```
+
+#### Compare unemployment trends over time
+Create a multi line graph to see trends over time
+
+```{r}
+ggplot(education_unemployment, aes(x = year, y = unemployment_rate, color = skill_category)) +
+  geom_line()
+```
+
+### Report 1.8
+The analysis reveals a statistically significant relationship between skill and unemployment rates, with p < 0.001 for both industry and education categories, meaning that there is a relation between skill category and unemployment.
+
+## Report 1.9
+The findings align with the research question and theory outlined in the proposal. It makes sense that low-skill workers show greater instability, the boxplots reveal a larger variance in unemployment rates for this group. This supports the idea that low-skill workers are more vulnerable to job loss and displacement compared to higher-skill workers. In the line graph we see the same, but we see specifically in 2020 all the skill categories faced more unemployment, this just shows that lower skill workers experience more problems with unemployment rates when economic changes occur, which potentially means economic changing technology could impact lower skilled workers worse as well
+
+## Report 1.10
+The dataset covers only the years 2017–2023, a relatively short period which might not capture long-term trends or gradual technological changes, like AI adoption. This time frame makes it difficult to look at broader trends and understand how unemployment rates evolve over extended periods.
+Collapsing education levels into skill categories simplifies the analysis. For instance, not all individuals within "Low Skill" or "Medium Skill" groups may experience unemployment similarly some can have certifications and different skills learned outside of school.
+The ANOVA test shows that there is a statistically significant correlation between skill categories and unemployment rates,but doesn't say which specific groups are most impacted or provide detailed insights into the level of differences

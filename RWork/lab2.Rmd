@@ -1,0 +1,272 @@
+---
+title: "Lab 2"
+author: "Peter Gansallo"
+date: "2024-10-24"
+Purpose: "I will be investigating if there's a relationship between income and marital status"
+output:
+  html_document:
+    theme: flatly
+    self_contained: yes
+    mode: self_contained
+  pdf_document:
+editor_options:
+  markdown:
+    wrap: sentence
+---
+
+```{r setup, include=FALSE}
+# Load the necessary tools and setting the work directory
+install.packages("Hmisc", repos = "http://cran.us.r-project.org")
+install.packages("descr", repos = "http://cran.us.r-project.org")
+library("Hmisc") # going to use this to do crosstab
+library("descr") # going to use this to do crosstab
+library(devtools)
+library(tidyverse) # collection of R packages designed for data science
+library(here) # helps with filepaths
+library(dplyr)
+library(remotes)
+setwd("~/Desktop/RWork")
+here::i_am("lab2.Rmd") # this should match the file name
+```
+
+# Part 1
+
+Load critstats package
+
+```{r, eval=FALSE}
+# Use the remote install function to call in your data
+# remotes::install_github("professornaite/critstats", force=TRUE)
+
+# Loading the `critstats` library
+library(critstats)
+
+# update the `critstats` package if needed
+update.packages("critstats")
+```
+
+Look at datasets in critstats
+```{r}
+data(package = 'critstats')
+```
+
+
+## Report 1.1
+Decided to use the data in gss_cat
+
+### Examine and understand the gss_cat data
+Look at how many rows, columns, variable names, levels and data types 
+
+```{r}
+str(gss_cat)
+```
+
+## Report 1.2
+The two variables we'll investigate is the marital and relig variable in gss cat
+
+## Report 1.3
+#### Is there an association between religion and divorce rates in the U.S?
+
+```{r}
+gss_cat_df <- gss_cat
+```
+
+
+Take a peak at the data
+
+```{r}
+head(gss_cat_df)
+```
+
+## Report 1.4
+I'm going to look at the data in the dataset, check for missing values, in the age, religion, and marital status which I'm interested in. Then I'm going to convert the age column from an int and change it a factor having 3 factors, "early stage" from 18-34, "mid stage" from 35-49, and "late stage" 50+(this won't be apart of the analysis so I'll look at this correlation at the ed of the report). I'm going to combine the different religions into three categories, "Christian", "Other World Religion", and "Non Religious". Then I'll make marital a two factor variable "Divorced/Seperated" and "Married", I'll remove "no answer","Never Married" ,and "widowed" in the marital status column. I'll then do a chi squared test to test the two categorical variables Marital Status and Religion, to see if there's enough correlation to reject the null hypothesis which is that there's no correlation between religion and marital status.
+
+## Report 1.5
+The data not being evenly spread out is a potential limitation, as some factors in each of the columns we're investigating have a larger number of observations which can possible affect our conclusions.
+
+# Part 2
+Part 2 reports will mostly be in order, and some will be at the bottom of the analysis
+### Understanding the data of the latest year in the dataset
+
+```{r}
+max(gss_cat_df$year)
+```
+
+Inspect the data now that we're looking at 2014
+
+```{r}
+gss2014 <- filter(gss_cat_df, year == 2014)
+str(gss2014)
+```
+
+Take a look at the unique values of religion and of marital status
+
+```{r}
+table(gss2014$marital)
+```
+Take a look at the unique values of religion
+
+```{r}
+table(gss2014$relig)
+```
+## Report 1.6 and Report 1.7
+
+### Clean up the data
+We see there are some data we won't include in our analysis
+Remove the data we won't include in our analysis
+Religion:
+- No answer; ineffective for our analysis (15)
+- Don't know; ineffective for our analysis (3)
+- Inter-nondenominational; doesn't fall under christian, other world religion or not religious categories (4)
+- other eastern; doesn't fall under christian, other world religion or not religious categories (3)
+- native american; doesn't fall under christian, other world religion or not religious categories (2)
+
+Marital:
+- No answer; ineffective for our analysis (4)
+- Never married; ineffective for our analysis (675)
+- Widowed; might make the analysis a little noisy, as there are things we can't account for (209)
+
+```{r}
+cleaned_2014_gss <- gss2014 %>%
+  # we'll filter out some factors from the relig and marital category
+  filter(relig != "No answer",
+         relig != "Don't know",
+         relig != "Other",
+         relig != "Not applicable",
+         relig != "Inter-nondenominational",
+         relig != "Native american",
+         relig != "Other eastern",
+         marital != "No answer",
+         marital != "Never married",
+         marital != "Widowed") %>%
+  droplevels()
+cleaned_2014_gss #take a peak at the cleaned tibble
+```
+
+Take a look at the unique values of religion again
+
+```{r}
+table(cleaned_2014_gss$relig)
+```
+
+Take a look at the unique values of marital again
+
+```{r}
+table(cleaned_2014_gss$marital)
+```
+
+Now we need to also look at the age categories as I'm sure this will play a role in the marital rates
+
+```{r}
+table(cleaned_2014_gss$age)
+```
+### income cleanup
+
+```{r}
+table(gss2014$rincome)
+```
+### Age cleanup
+
+```{r}
+final2014gss <- cleaned_2014_gss %>% 
+ mutate(age_group = fct_collapse(as.factor(age),#like recode but supports range
+#Unknown levels in `f`: 18, 19, 21 after doing more filters, so changing to suite the data properly and now changing category to 20-34 from 18-34
+                                          "20-34" = as.character(20),
+                                          "20-34" = as.character(22:34),
+                                          "35-49" = as.character(35:49),
+                                          "50+" = as.character(50:89))) %>%
+ mutate(religion = fct_recode(relig,
+                                     "Christian" = "Christian",
+                                     "Christian" = "Catholic",
+                                     "Christian" = "Protestant",
+                                     "Christian" = "Orthodox-christian",
+                                     "Other World Religions" = "Hinduism",
+                                     "Other World Religions" = "Buddhism",
+                                     "Other World Religions" = "Moslem/islam",
+                                     "Other World Religions" = "Jewish")) %>%
+ mutate(marital_status = fct_recode(marital,
+                                    "Separated/Divorced" = "Separated",
+                                    "Separated/Divorced" = "Divorced"))
+table(final2014gss$age_group)
+table(final2014gss$religion)
+table(final2014gss$marital_status)
+```
+
+Reduce to only the categories we'll analyze
+```{r}
+final2014gss <- final2014gss %>%
+  select(religion, marital_status, age_group)
+```
+
+## Report 1.6
+
+### Null Cleanup
+
+```{r}
+sapply(final2014gss, function(x) sum(is.na(x)))
+```
+After cleaning up the data we see that we only have 5 null values in age which we'll remove and should be our last cleanup
+
+```{r}
+final2014gss <- na.omit(final2014gss)
+sapply(final2014gss, function(x) sum(is.na(x)))
+```
+
+
+## Report 1.8
+
+### Take a look at the relationship between the variables
+
+
+```{r}
+crosstab(final2014gss$religion, final2014gss$marital_status, 
+         prop.r = T)
+```
+It seems the percentages show that religious people are more likely to be married still
+
+### Chi-Squared analysis
+
+```{r}
+# get critical value of chi-square, p=.05, df = 1
+# df = (r-1)(c-1)
+qchisq(.05, 2, lower.tail = F)
+
+# get the chi square stat
+chisq.test(final2014gss$religion, final2014gss$marital_status)
+```
+There is a relationship between religion and marital status. We got a critical value of 5.991, and our X-squared value is greater than that. Our p value is .02142 which is less than .05 which indicates that there is enough evidence to reject the null hypothesis and that there is enough evidence to suggest that there is correlation between religion and marital status, people that are religious are less likely to be divorced.
+
+### Visualization
+
+```{r}
+plot(final2014gss$religion, final2014gss$marital_status,
+     main = "Mosaic Plot of Religion and Marital Status",
+     col = c("Blue","lightgreen"),
+     xlab = "Religious Affiliation",
+     ylab = "Marital Status")
+```
+
+## Report 1.9
+The chi-squared test results show that there's statistically significant association between religious affiliation and marital status, suggesting that religious identity may indeed influence marital stability. The theory that religious communities often promote marital stability through shared beliefs and practices, contributing to lower rates of marital breakdown among religious individuals seems true. The results support this notion, as both Christian and Other World Religions have higher proportions of married individuals compared to those with no religious affiliation.
+
+## Report 1.10
+Religious affiliations are grouped broadly, such as "Christian," "Other World Religions," and "None," which could mask unique influences that specific denominations or practices have on marital stability. This analysis only looks at the year 2014, so this limits our ability to explore how marriage stability changes over time or how it responds to shifts real world factors, like I'll be interested to see these rates during covid.The data doesn’t include any details on marital happiness or satisfaction, so we can’t tell if lower divorce rates in certain religious groups indicate happier marriages or if they might be due to social or religious pressures. Finally, without information on factors like age, education, or location, and income we may miss important influences that shape the link between religion and divorce rates. These limitations mean that while the analysis can show general trends, it may not provide the full picture of what affects marital stability.
+
+
+### Age and marital status correlation
+
+```{r}
+crosstab(final2014gss$age_group, final2014gss$marital_status, 
+         prop.r = T)
+```
+It seems the percentages show that religious people are more likely to be married still
+
+### Chi-Squared analysis
+
+```{r}
+# get critical value of chi-square, p=.05, df = 1
+# df = (r-1)(c-1)
+qchisq(.05, 2, lower.tail = F)
+
+# get the chi square stat
+chisq.test(final2014gss$age_group, final2014gss$marital_status)
+```

@@ -1,0 +1,1201 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20243.24.1010.1014                               -->
+<workbook original-version='18.1' source-build='2024.3.0 (20243.24.1010.1014)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Rambsy JayZ Samples (Jay-Z Dataset)' inline='true' name='federated.0apf0pt0e0fwoy158nvag1wcd7ao' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Jay-Z Dataset' name='excel-direct.066z2mt0lw80tl16evj3p0c6y6b5'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/peterg/Desktop/data visualization/Jay-Z Dataset.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.066z2mt0lw80tl16evj3p0c6y6b5' name='Rambsy JayZ Samples' table='[&apos;Rambsy JayZ Samples$&apos;]' type='table'>
+          <columns gridOrigin='A1:L246:no:A1:L246:0' header='yes' outcome='2'>
+            <column datatype='date' name='Release Date' ordinal='0' />
+            <column datatype='string' name='Album Title' ordinal='1' />
+            <column datatype='string' name='Song Title' ordinal='2' />
+            <column datatype='string' name='Track #' ordinal='3' />
+            <column datatype='string' name='Producer' ordinal='4' />
+            <column datatype='integer' name='Number of Samples' ordinal='5' />
+            <column datatype='string' name='Sample Artist' ordinal='6' />
+            <column datatype='string' name='Sample Song Title' ordinal='7' />
+            <column datatype='integer' name='Sample Year' ordinal='8' />
+            <column datatype='string' name='Sample Decade' ordinal='9' />
+            <column datatype='string' name='Sample Genre' ordinal='10' />
+            <column datatype='string' name='Sample Type' ordinal='11' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Rambsy JayZ Samples]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:L246:no:A1:L246:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Release Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Release Date]</local-name>
+            <parent-name>[Rambsy JayZ Samples]</parent-name>
+            <remote-alias>Release Date</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Album Title</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Album Title]</local-name>
+            <parent-name>[Rambsy JayZ Samples]</parent-name>
+            <remote-alias>Album Title</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Song Title</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Song Title]</local-name>
+            <parent-name>[Rambsy JayZ Samples]</parent-name>
+            <remote-alias>Song Title</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Track #</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Track #]</local-name>
+            <parent-name>[Rambsy JayZ Samples]</parent-name>
+            <remote-alias>Track #</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Producer</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Producer]</local-name>
+            <parent-name>[Rambsy JayZ Samples]</parent-name>
+            <remote-alias>Producer</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Number of Samples</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Number of Samples]</local-name>
+            <parent-name>[Rambsy JayZ Samples]</parent-name>
+            <remote-alias>Number of Samples</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sample Artist</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Sample Artist]</local-name>
+            <parent-name>[Rambsy JayZ Samples]</parent-name>
+            <remote-alias>Sample Artist</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sample Song Title</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Sample Song Title]</local-name>
+            <parent-name>[Rambsy JayZ Samples]</parent-name>
+            <remote-alias>Sample Song Title</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sample Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Sample Year]</local-name>
+            <parent-name>[Rambsy JayZ Samples]</parent-name>
+            <remote-alias>Sample Year</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sample Decade</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Sample Decade]</local-name>
+            <parent-name>[Rambsy JayZ Samples]</parent-name>
+            <remote-alias>Sample Decade</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sample Genre</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Sample Genre]</local-name>
+            <parent-name>[Rambsy JayZ Samples]</parent-name>
+            <remote-alias>Sample Genre</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sample Type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Sample Type]</local-name>
+            <parent-name>[Rambsy JayZ Samples]</parent-name>
+            <remote-alias>Sample Type</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[Sample Type]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Sample Year]' role='dimension' type='quantitative' />
+      <column datatype='string' name='[Simplified Sample Type]' role='dimension' type='nominal'>
+        <calculation class='categorical-bin' column='[Sample Type]' new-bin='true' />
+      </column>
+      <column caption='Rambsy JayZ Samples' datatype='table' name='[__tableau_internal_object_id__].[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]' role='measure' type='quantitative' />
+      <column-instance column='[Sample Type]' derivation='None' name='[none:Sample Type:nk]' pivot='key' type='nominal' />
+      <drill-paths>
+        <drill-path name='Collaborator Origin State, Collaborator Origin City' />
+      </drill-paths>
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/tf/t9t14sq56tq7k5310hms5l2r0000gn/T/tableau-temp/#TableauTemp_0veuo5419w3aax136914h0qqnvxo.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='03/14/2025 06:23:59 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Release Date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Release Date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Release Date</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Rambsy JayZ Samples</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>13</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Album Title</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Album Title]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Album Title</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Rambsy JayZ Samples</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>13</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Song Title</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Song Title]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Song Title</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Rambsy JayZ Samples</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>134</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Track #</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Track #]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Track #</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Rambsy JayZ Samples</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>35</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Producer</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Producer]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Producer</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Rambsy JayZ Samples</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>62</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Number of Samples</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Number of Samples]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Number of Samples</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Rambsy JayZ Samples</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>9</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sample Artist</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sample Artist]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Sample Artist</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Rambsy JayZ Samples</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>195</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sample Song Title</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sample Song Title]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Sample Song Title</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Rambsy JayZ Samples</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>235</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sample Year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Sample Year]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Sample Year</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Rambsy JayZ Samples</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>45</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sample Decade</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sample Decade]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Sample Decade</remote-alias>
+              <ordinal>9</ordinal>
+              <family>Rambsy JayZ Samples</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sample Genre</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sample Genre]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Sample Genre</remote-alias>
+              <ordinal>10</ordinal>
+              <family>Rambsy JayZ Samples</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sample Type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sample Type]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Sample Type</remote-alias>
+              <ordinal>11</ordinal>
+              <family>Rambsy JayZ Samples</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Sample Type:nk]' palette='orange_gold_10_0' type='palette'>
+            <map to='#9e3a26'>
+              <bucket>&quot;Vocal/Lyric Sample&quot;</bucket>
+            </map>
+            <map to='#c54923'>
+              <bucket>&quot;Other&quot;</bucket>
+            </map>
+            <map to='#e2621f'>
+              <bucket>&quot;Movie&quot;</bucket>
+            </map>
+            <map to='#f4d166'>
+              <bucket>&quot;Instrumentation: Drums&quot;</bucket>
+            </map>
+            <map to='#f4d166'>
+              <bucket>&quot;Instrumentation: General&quot;</bucket>
+            </map>
+            <map to='#f4d166'>
+              <bucket>&quot;Instrumentation: Hook/Riff&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='Release Date' />
+        <field-sort-custom-order field='Album Title' />
+        <field-sort-custom-order field='Song Title' />
+        <field-sort-custom-order field='Track #' />
+        <field-sort-custom-order field='Producer' />
+        <field-sort-custom-order field='Number of Samples' />
+        <field-sort-custom-order field='Sample Artist' />
+        <field-sort-custom-order field='Sample Song Title' />
+        <field-sort-custom-order field='Sample Year' />
+        <field-sort-custom-order field='Sample Decade' />
+        <field-sort-custom-order field='Sample Genre' />
+        <field-sort-custom-order field='Sample Type' />
+        <field-sort-custom-order field='Calculation_1746130075063627778' />
+        <field-sort-custom-order field='Geometry (generated)' />
+        <field-sort-custom-order field='Latitude (generated)' />
+        <field-sort-custom-order field='Longitude (generated)' />
+        <field-sort-custom-order field=':Measure Names' />
+        <field-sort-custom-order field='Multiple Values' />
+      </field-sort-info>
+      <object-graph>
+        <objects>
+          <object caption='Rambsy JayZ Samples' id='Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C'>
+            <properties context=''>
+              <relation connection='excel-direct.066z2mt0lw80tl16evj3p0c6y6b5' name='Rambsy JayZ Samples' table='[&apos;Rambsy JayZ Samples$&apos;]' type='table'>
+                <columns gridOrigin='A1:L246:no:A1:L246:0' header='yes' outcome='2'>
+                  <column datatype='date' name='Release Date' ordinal='0' />
+                  <column datatype='string' name='Album Title' ordinal='1' />
+                  <column datatype='string' name='Song Title' ordinal='2' />
+                  <column datatype='string' name='Track #' ordinal='3' />
+                  <column datatype='string' name='Producer' ordinal='4' />
+                  <column datatype='integer' name='Number of Samples' ordinal='5' />
+                  <column datatype='string' name='Sample Artist' ordinal='6' />
+                  <column datatype='string' name='Sample Song Title' ordinal='7' />
+                  <column datatype='integer' name='Sample Year' ordinal='8' />
+                  <column datatype='string' name='Sample Decade' ordinal='9' />
+                  <column datatype='string' name='Sample Genre' ordinal='10' />
+                  <column datatype='string' name='Sample Type' ordinal='11' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Jayz sample type %'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#f28e2b' fontsize='16'>Jay-Z Sample Type Makeup For Each Album</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Rambsy JayZ Samples (Jay-Z Dataset)' name='federated.0apf0pt0e0fwoy158nvag1wcd7ao' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0apf0pt0e0fwoy158nvag1wcd7ao'>
+            <column datatype='string' name='[Album Title]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Sample Type]' role='dimension' type='nominal' />
+            <column caption='Rambsy JayZ Samples' datatype='table' name='[__tableau_internal_object_id__].[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]' role='measure' type='quantitative' />
+            <column-instance column='[__tableau_internal_object_id__].[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Album Title]' derivation='None' name='[none:Album Title:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Sample Type]' derivation='None' name='[none:Sample Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[__tableau_internal_object_id__].[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]' derivation='Count' name='[pcto:cnt:Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='field-labels'>
+            <format attr='color' value='#ffbe7d' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='color' field='[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[none:Album Title:nk]' value='#ffbe7d' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#555555' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <encodings>
+              <color column='[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[none:Sample Type:nk]' />
+              <wedge-size column='[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[__tableau_internal_object_id__].[cnt:Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C:qk]' />
+              <size column='[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[__tableau_internal_object_id__].[cnt:Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C:qk]' />
+              <text column='[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[pcto:cnt:Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C:qk:2]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run>&lt;</run>
+                <run>[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[pcto:cnt:Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C:qk:2]</run>
+                <run>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='user' />
+                <format attr='color' value='#ffbe7d' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols>[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[none:Album Title:nk]</cols>
+      </table>
+      <simple-id uuid='{BC72FF3A-0DAE-4374-8A94-03FB5AAC48F8}' />
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Rambsy JayZ Samples (Jay-Z Dataset)' name='federated.0apf0pt0e0fwoy158nvag1wcd7ao' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0apf0pt0e0fwoy158nvag1wcd7ao'>
+            <column datatype='string' name='[Sample Type]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Simplified Sample Type]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Sample Type]' new-bin='true' />
+            </column>
+            <column caption='Rambsy JayZ Samples' datatype='table' name='[__tableau_internal_object_id__].[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]' role='measure' type='quantitative' />
+            <column-instance column='[__tableau_internal_object_id__].[Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[__tableau_internal_object_id__].[cnt:Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C:qk]</rows>
+        <cols>[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[Simplified Sample Type]</cols>
+      </table>
+      <simple-id uuid='{7444B2E8-91E6-4B27-A28F-3E086A17A625}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <style />
+      <size maxheight='860' maxwidth='650' minheight='560' minwidth='420' />
+      <zones />
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97328' id='3' param='vert' type-v2='layout-flow' w='97538' x='1231' y='1336' />
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{6CF7A8CB-F8EC-4252-B93D-103A7242E14E}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Jayz sample type %'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[none:Sample Type:nk]' type='color' />
+            <card pane-specification-id='0' param='[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[__tableau_internal_object_id__].[cnt:Rambsy JayZ Samples_4AC7EF24E14D4236AAD447078FC3ED1C:qk]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[none:Album Title:nk]</field>
+            <field>[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[none:Sample Decade:nk]</field>
+            <field>[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[none:Sample Genre:nk]</field>
+            <field>[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[none:Sample Type:nk]</field>
+            <field>[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[none:Sample Year:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{F4133DD7-43AB-4FE2-B10E-D5489A936019}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[Simplified Sample Type]</field>
+            <field>[federated.0apf0pt0e0fwoy158nvag1wcd7ao].[none:Sample Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{162F7025-3D90-44C4-BE3D-A9474080E1C2}' />
+    </window>
+    <window class='dashboard' name='Dashboard 1'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{4936E1CC-D74A-4BB6-A148-833DF0F51176}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='384' name='Dashboard 1' width='384'>
+      iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAYAAACkx7W/AAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAFXUlEQVR4nO3VMQEAIAzAMMC/5yFjRxMF/XpnZg4AOW87AIAdBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABR
+      BgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUA
+      AFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQ
+      ZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEG
+      ABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAA
+      UQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBl
+      AABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEGABBlAABRBgAQZQAAUQYA
+      EGUAAFEGABBlAABRBgAQZQAAUQYAEGUAAFEfFxoG/IiMv0YAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='384' name='Jayz sample type %' width='384'>
+      iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAYAAACkx7W/AAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAgAElEQVR4nO3dWXBk130e8O/crfcN+zKYBbNg9uGQw0XcRFIStVCiZEuWbVUqtuNK7EpV
+      SpVKlcuVx/ghlaqU85S4ktjlXZZsS4llS7KkiKQoiuRQHA7J2YecFTNYG93oRnffvuvJw8WA
+      g1kBDDBA43y/KpVYgwb6NnDv+e75n+UKKaUEEREpR1vtAyAiotXBACAiUhQDgIhIUQwAIiJF
+      MQCIiBRl3O4Lvu9jcnLyfh4LERHdR7cNgMnJSXz961+/n8dCRET3EUtARESKYgAQESmKAUBE
+      pCgGABGRohgARESKYgAQESmKAUBEpCgGABGRohgARESKYgAQESmKAUBEpCgGABGRohgARESK
+      YgAQESmKAUBEpCgGABGRohgARESKYgAQESmKAUBEpCgGABGRohgARESKYgAQESmKAUBEpCgG
+      ABGRohgARESKYgAQESmKAUBEpCgGABGRohgARESKYgAQESmKAUBEpCgGABGRohgARESKYgAQ
+      ESmKAUBEpCgGABGRohgARESKYgAQESmKAUBEpCgGABGRohgARESKYgAQESmKAUBEpCgGABGR
+      ohgARESKYgAQESmKAUBEpCgGABGRohgARESKYgAQESmKAUBEpCgGABGRohgARESKYgAQESmK
+      AUBEpCgGABGRohgARESKYgAQESmKAUBEpCgGABGRohgARESKYgAQESmKAUBEpCgGABGRohgA
+      RESKYgAQESmKAUBEpCgGABGRohgARESKYgAQESmKAUBEpCgGABGRohgARESKYgAQESmKAUBE
+      pCgGABGRohgARESKYgAQESmKAUBEpCgGABGRohgARESKYgAQESmKAUBEpCgGABGRohgARESK
+      Mlb7ANa7pKUhFdPgB0C54a/24dxWKqYhaWloehIzzWC1D4fotgxdIBvXoWsC5boPP5SrfUgt
+      iwGwCJ0ZE4Xk3X9lQShRrHmo2AEe3JTGcztzGK96+J8/HVvxY8zGdXRmTOiamPs3KSXcQKJq
+      B6jYPm51vTwzlMfDW9I4PdrAN98qrvhxrpRcQsfzewrQNOCt8zO4UHTu6/sLAB0ZE/15C+1p
+      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
+      3ZUbPk5cbUT7As2eKEEIvHSqgomqjye3Z9CRMWHpGvxQomr7ODVq4/D5mduOAQShxMkRe97q
+      b392s7+RsoMPZxcK3unGzHZDnBm18dg2A1dmt364Xiij1fJHL9dwccqBd91JHoTRNthHL9dw
+      pRS9T90J8ZNT0zB1ge3d0RTWqu3j1IiN80UbD23OIJfQYbsB/DDaOiUIJfZtSKEtZcCa3WNM
+      SHnrwx4dHcXXv/71238iWnG6BmRiOgxdoO6Ec4td7jdDE+jMmDB1gXLDR60ZLOiGJWFGq2+9
+      UKLeDG+aafHMUA5fe6wTUkr87l+cQzoWLVibcYJ5U/VWm2VEDyC59ne42xTO2OxU1/Ts9NVa
+      M5gbIKfVl7K02TGdEHUnwP1Yl5eN6/iPnx9AV8bEt48U8b33l2chpqkLtKcMmIbAeNW76zlm
+      6rPnZkyHG4TsAaxlQYh5G7CtFj+US9q/xvYkbG9hi58kgBknBNbgAzZcXy5q/yXHl3Bq/pL3
+      bKKVVXfDe9oqfKF0DehIm+gvWHhwYxob22K4ONXEkUu1ZXsPL5AYW8RYghdIlOr+3FRVBgAR
+      0QrIxHU8vyePh7dk0JYy4AYSP3i/PG+h2GpjANCqqdo+rpQdtNgzNIgWRBMCMTPaofTUqI0f
+      HCvj2JX6mpoGzACgVfPO5TreuVxf7cMgWhGluo8/fnX87i9cRdwMjohIUUvqAWSzWWzbtm25
+      j4WIiO4j9gCIiBS1pB5AtVrFO++8s9zHQkRE9xF7AEREimIAEBEpigFARKQoBgARkaIYAERE
+      imIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQo
+      BgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIA
+      EBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgAR
+      kaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEp
+      igFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIY
+      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
+      xBvHXJy+5CPkr4VoHk8zcDLfzwBYL85f9fHjt5qYabC1832Jo2c9/PSog0aTpR+iW5kx4xwD
+      WC8cD3j1XRcSwPOPxNGWVTPb63aIn7zt4LX3XM73J7oDKTQGwHrSaEq8fMTBZCnEr34yga62
+      e9s+utWUKiFeeqeJ//cLBw43+iS6KwbAOuN6wDtnPYyWAvzOF1Po69RhGut7O4gwlLg6GeL7
+      r9t488TyPDWNSAVq1gkUMFoM8YffrOH1Yy6azvothdiOxMmLPv7se3UcPsnGn2gx2ANYx6p1
+      ib97yUajKfHIbhPtufVVEqrZIQ6fcPHDNx3u7U+0BAyAda5uS/zTz5sYKQZ49sEYNvXo0PXW
+      LglJKVGekXjrpIsfvdVEubp+ezhEK4kBoIBGU+LwCRcXRwM8vs/Ec4fiiJmtGQJ1O8Sxcx5+
+      8raDyXKISp2NP9FSMQAU4fnAlYkA3/1ZgHfP+njmIQsf23v7Z4WuNbYjcfqShx+80cRIMeTW
+      DkTLgAGgmKYLnB32ce6qjx8fdvDJh2PYM2ginRBrrjQkpcRMQ+LURR+vvefg7LAPl+O8RMuG
+      AaCoIAQujAb48+83sKXfwDMHLWzuNdDTvvoDxX4gUbclipUQrxxxcOSMC9tZ7aMiWn8YAIpz
+      feDMJR+XRn1s7TdwcMhELqVhoFtHe06DcZ96BWEoUalJjE4FuDoZ4MpEgA+GfYxOcXYP0Uph
+      ABCAqDR04oKPkxd95FICG7t19HXo2NJvYKBbR+8K9AwcNyrxjE4FGB4PcH7Ex2gxQLESstRD
+      dB8wAGgeKYHpmsR0zceJCz5yp1zk0hoG+wxs7deRSWnIpTR0FjTErcX1DmbqIfwAKNdCTJSi
+      2TzjpQA1W6JaD1nmIbrPGAB0W0EIlKoSpWp0h/7mCQFdA3QNMHQBTQMKaQ2mCXTkNLTnNFiW
+      QC6loVQNMFOXaLpRLX+qEsJxAQkgCCS8AGg6EgErPESrhgFAC+IHgD9v6mX03+N82ApRy+Je
+      QEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFA
+      RKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAERE
+      imIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQo
+      BgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIA
+      EBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgAR
+      kaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEp
+      igFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIY
+      AEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFARKQoBgARkaIYAEREimIAEBEpigFA
+      RKSo/w84aSIeYLtPqwAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='384' name='Sheet 2' width='384'>
+      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
+      AABJRU5ErkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>
